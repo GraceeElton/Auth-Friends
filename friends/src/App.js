@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from "./Comp/login";
 import FriendsList from "../src/Comp/friendList";
+import PrivateRoute from "./Comp/Private";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
       </div>
       <Switch>
         <Route path="/login" component={Login}></Route>
-        <Route path="/friends" component={FriendsList}></Route>
+        <PrivateRoute
+          exact
+          path="/friends"
+          component={FriendsList}
+        ></PrivateRoute>
       </Switch>
     </Router>
   );
